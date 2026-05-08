@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Box Model — Profile Card</title>
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #f0ede8;
+      color: #1a1a1a;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
+    /* ── Layout ── */
+    .layout {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    @media (max-width: 620px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+
+    /* ── Card stage ── */
+    .card-stage {
+      background: #e2ddd7;
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 340px;
+    }
+
+    .stage-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+      margin-bottom: 1rem;
+      align-self: flex-start;
+    }
+
+    /* ── The margin wrapper (dashed amber) ── */
+    .margin-box {
+      background: rgba(186, 117, 23, 0.10);
+      border: 2px dashed #BA7517;
+      border-radius: 10px;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    /* ── Profile card ── */
+    .profile-card {
+      background: #ffffff;
+      border: 2px solid #185FA5;
+      border-radius: 10px;
+      padding: 20px;
+      width: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #ddeeff;
+      color: #185FA5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      flex-shrink: 0;
+      font-family: Georgia, serif;
+    }
+
+    .card-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 4px;
+    }
+
+    .card-role {
+      font-size: 12px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .card-note {
+      font-size: 11px;
+      color: #666;
+      line-height: 1.5;
+      border-top: 1px solid #e5e5e5;
+      padding-top: 8px;
+      width: 100%;
+      font-style: italic;
+    }
+
+    /* ── Legend ── */
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 14px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: #555;
+      font-family: monospace;
+    }
+
+    .legend-swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    /* ── Controls panel ── */
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .control-group {
+      background: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+
+    .control-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .layer-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .control-title {
+      font-size: 13px;
+      font-weight: 700;
+      font-family: monospace;
+      color: #111;
+    }
+
+    .control-desc {
+      font-size: 11px;
+      color: #666;
+      margin-bottom: 8px;
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-style: italic;
+    }
+
+    .slider-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .slider-row input[type="range"] {
+      flex: 1;
+      accent-color: #185FA5;
+    }
+
+    .slider-val {
+      font-size: 12px;
+      font-weight: 700;
+      font-family: monospace;
+      min-width: 38px;
+      color: #333;
+    }
+
+    /* ── Code block ── */
+    .code-section {
+      max-width: 860px;
+      margin: 1.5rem auto 0;
+    }
+
+    .code-section h2 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #888;
+      margin-bottom: 0.6rem;
+    }
+
+    pre {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 2;
+      overflow-x: auto;
+    }
+
+    .c-margin  { color: #f9e2af; }  /* amber */
+    .c-border  { color: #89b4fa; }  /* blue  */
+    .c-padding { color: #a6e3a1; }  /* green */
+    .c-content { color: #f5c2e7; }  /* pink  */
+    .c-comment { color: #585b70; font-style: italic; }
+
+    /* ── Explainer section ── */
+    .explainer {
+      max-width: 860px;
+      margin: 1.5rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .explainer-card {
+      background: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+
+    .explainer-card h3 {
+      font-family: monospace;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .explainer-card p {
+      font-size: 12px;
+      color: #555;
+      line-height: 1.55;
+      font-style: italic;
+    }
+
+    .tag-margin  { color: #BA7517; }
+    .tag-border  { color: #185FA5; }
+    .tag-padding { color: #0F6E56; }
+    .tag-content { color: #7c3aed; }
+  </style>
+</head>
+<body>
+
+  <h1>CSS Box Model — Profile Card</h1>
+  <p class="subtitle">Drag the sliders to modify each Box Model layer and observe what changes</p>
+
+  <div class="layout">
+
+    <!-- Left: live card preview -->
+    <div>
+      <div class="card-stage">
+        <p class="stage-label">Live Preview</p>
+        <!-- MARGIN layer (dashed amber wrapper) -->
+        <div class="margin-box" id="marginBox">
+          <!-- BORDER + PADDING + CONTENT = .profile-card -->
+          <div class="profile-card" id="card">
+            <!-- CONTENT starts here -->
+            <div class="avatar">AK</div>
+            <p class="card-name">Alex Kumar</p>
+            <p class="card-role">UX Designer · Figma wizard</p>
+            <p class="card-note">"I help teams turn messy problems into clear, usable interfaces."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legend -->
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:rgba(186,117,23,0.2);border:2px dashed #BA7517;"></div>
+          margin
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:#185FA5;"></div>
+          border
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:rgba(15,110,86,0.15);border:1px solid #0F6E56;"></div>
+          padding
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:#fff;border:1px solid #ccc;"></div>
+          content
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: sliders -->
+    <div class="controls">
+
+      <!-- MARGIN -->
+      <div class="control-group">
+        <div class="control-header">
+          <div class="layer-dot" style="background:rgba(186,117,23,0.35);border:2px dashed #BA7517;"></div>
+          <span class="control-title tag-margin">margin</span>
+        </div>
+        <p class="control-desc">Space <em>outside</em> the border. Pushes the card away from its surroundings. Always transparent.</p>
+        <div class="slider-row">
+          <input type="range" min="0" max="40" value="16" step="1"
+                 oninput="updateMargin(this.value)" id="marginSlider" />
+          <span class="slider-val" id="marginVal">16px</span>
+        </div>
+      </div>
+
+      <!-- BORDER -->
+      <div class="control-group">
+        <div class="control-header">
+          <div class="layer-dot" style="background:#185FA5;"></div>
+          <span class="control-title tag-border">border</span>
+        </div>
+        <p class="control-desc">The visible edge that wraps the card. Has width, style (solid/dashed/dotted), and color.</p>
+        <div class="slider-row">
+          <input type="range" min="0" max="14" value="2" step="1"
+                 oninput="updateBorder(this.value)" id="borderSlider" />
+          <span class="slider-val" id="borderVal">2px</span>
+        </div>
+      </div>
+
+      <!-- PADDING -->
+      <div class="control-group">
+        <div class="control-header">
+          <div class="layer-dot" style="background:rgba(15,110,86,0.35);border:2px solid #0F6E56;"></div>
+          <span class="control-title tag-padding">padding</span>
+        </div>
+        <p class="control-desc">Space <em>inside</em> the border. Breathing room between the edge and the content. Shares the card's background.</p>
+        <div class="slider-row">
+          <input type="range" min="4" max="48" value="20" step="1"
+                 oninput="updatePadding(this.value)" id="paddingSlider" />
+          <span class="slider-val" id="paddingVal">20px</span>
+        </div>
+      </div>
+
+      <!-- CONTENT (width) -->
+      <div class="control-group">
+        <div class="control-header">
+          <div class="layer-dot" style="background:#ede9fe;border:1px solid #7c3aed;"></div>
+          <span class="control-title tag-content">content width</span>
+        </div>
+        <p class="control-desc">The width of the inner content area — the name, role, note, and avatar. Set with the <code>width</code> property.</p>
+        <div class="slider-row">
+          <input type="range" min="120" max="260" value="180" step="1"
+                 oninput="updateWidth(this.value)" id="widthSlider" />
+          <span class="slider-val" id="widthVal">180px</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Live CSS code block -->
+  <div class="code-section">
+    <h2>Live CSS</h2>
+    <pre>
+<span class="c-comment">/* The profile card element */</span>
+.profile-card {
+
+  <span class="c-comment">/* ① MARGIN — outside the border */</span>
+  <span class="c-margin">margin: <span id="codeMargin">16px</span>;</span>
+
+  <span class="c-comment">/* ② BORDER — the visible edge */</span>
+  <span class="c-border">border: <span id="codeBorder">2px</span> solid #185FA5;</span>
+
+  <span class="c-comment">/* ③ PADDING — inside the border */</span>
+  <span class="c-padding">padding: <span id="codePadding">20px</span>;</span>
+
+  <span class="c-comment">/* ④ CONTENT — the inner area width */</span>
+  <span class="c-content">width: <span id="codeWidth">180px</span>;</span>
+
+  <span class="c-comment">/* Other visual properties */</span>
+  background: #ffffff;
+  border-radius: 10px;
+}</pre>
+  </div>
+
+  <!-- Plain-English explainer cards -->
+  <div class="explainer">
+
+    <div class="explainer-card">
+      <h3 class="tag-margin">① margin</h3>
+      <p>Space outside the box. Like the gap between your house and your neighbour's. Completely transparent — shows whatever is behind it.</p>
+    </div>
+
+    <div class="explainer-card">
+      <h3 class="tag-border">② border</h3>
+      <p>The walls of your house. Sits between margin and padding. Can be thin or thick, visible or invisible, solid or dashed.</p>
+    </div>
+
+    <div class="explainer-card">
+      <h3 class="tag-padding">③ padding</h3>
+      <p>Space inside the walls. Like the gap between your walls and your furniture. Shares the element's background colour.</p>
+    </div>
+
+    <div class="explainer-card">
+      <h3 class="tag-content">④ content</h3>
+      <p>The furniture itself — text, images, whatever is in the box. Its size is controlled by <code>width</code>, <code>height</code>, and the content itself.</p>
+    </div>
+
+  </div>
+
+  <script>
+    function updateMargin(v) {
+      document.getElementById('marginBox').style.margin = v + 'px';
+      document.getElementById('marginVal').textContent = v + 'px';
+      document.getElementById('codeMargin').textContent = v + 'px';
+    }
+
+    function updateBorder(v) {
+      document.getElementById('card').style.borderWidth = v + 'px';
+      document.getElementById('borderVal').textContent = v + 'px';
+      document.getElementById('codeBorder').textContent = v + 'px';
+    }
+
+    function updatePadding(v) {
+      document.getElementById('card').style.padding = v + 'px';
+      document.getElementById('paddingVal').textContent = v + 'px';
+      document.getElementById('codePadding').textContent = v + 'px';
+    }
+
+    function updateWidth(v) {
+      document.getElementById('card').style.width = v + 'px';
+      document.getElementById('widthVal').textContent = v + 'px';
+      document.getElementById('codeWidth').textContent = v + 'px';
+    }
+
+    // Set initial state
+    updateMargin(16);
+    updateBorder(2);
+    updatePadding(20);
+    updateWidth(180);
+  </script>
+
+</body>
+</html>
