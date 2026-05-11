@@ -1,1 +1,160 @@
+/* Removes default spacing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+/* Webpage background */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #050b2c, #11194a, #21145c);
+  color: white;
+}
+
+/* Full team section */
+.team-section {
+  padding: 30px 30px;
+}
+
+/* Heading section */
+.team-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Main heading */
+.team-heading h1 {
+  font-size: 55px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* Purple underline */
+.underline {
+  width: 120px;
+  height: 5px;
+  background-color: #9b5cff;
+  margin: 0 auto 15px;
+  border-radius: 10px;
+}
+
+/* Subtitle */
+.team-heading p {
+  font-size: 20px;
+  color: #d0d0d0;
+  line-height: 1.5;
+}
+
+/* Flexbox container */
+.team-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+}
+
+/* Profile card */
+.profile-card {
+  width: 290px;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  padding: 35px 25px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Card hover effect */
+.profile-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Profile image */
+.profile-card img {
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #9b5cff;
+  margin-bottom: 25px;
+}
+
+/* Name */
+.profile-card h3 {
+  font-size: 30px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* Role */
+.role {
+  font-size: 18px;
+  color: #9b5cff;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Description */
+.description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #d7d7d7;
+  margin-bottom: 25px;
+  flex-grow: 1;
+}
+
+/* Social links container */
+.social-links {
+  border-top: 1px solid #7b55d9;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Social media icons */
+.social-links a {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #4da3ff;
+  border-radius: 50%;
+  color: #4da3ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s ease;
+}
+
+/* Hover effect for icons */
+.social-links a:hover {
+  background-color: #9b5cff;
+  color: white;
+  border-color: #9b5cff;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+
+  .team-heading h1 {
+    font-size: 38px;
+  }
+
+  .team-heading p {
+    font-size: 16px;
+  }
+
+  .profile-card {
+    width: 100%;
+    max-width: 320px;
+  }
+}
