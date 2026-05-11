@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+ 
+
+</head>
+<!-- Font Awesome CDN for Social Media Icons -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<section class="team-section">
+
+  <div class="team-heading">
+    <h1>Meet Our Team</h1>
+    <p>A passionate group of professionals dedicated to building innovative solutions.</p>
+  </div>
+
+  <section class="team-container">
+    <!-- Your 4 profile cards stay here -->
+  </section>
+
+</section>
+<!-- Main Team Container -->
+<section class="team-container">
+
+  <!-- Card 1 -->
+  <div class="profile-card">
+
+    <!-- Your uploaded image remains the same -->
+    <img src="Card 1.jpg" alt="Aarav Profile">
+
+    <h3>Aarav</h3>
+
+    <p class="role">Frontend Developer</p>
+
+    <p class="description">
+      Passionate about creating responsive and user-friendly web interfaces.
+    </p>
+
+    <!-- Social Media Links -->
+    <div class="social-links">
+
+      <a href="https://www.instagram.com/"
+         target="_blank"
+         aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+
+      <a href="https://www.facebook.com/"
+         target="_blank"
+         aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+
+      <a href="https://www.linkedin.com/"
+         target="_blank"
+         aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+
+      <a href="https://twitter.com/"
+         target="_blank"
+         aria-label="Twitter">
+        <i class="fa-brands fa-twitter"></i>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="profile-card">
+
+    <img src="Card 2.jpg" alt="Meera Profile">
+
+    <h3>Meera</h3>
+
+    <p class="role">UI Designer</p>
+
+    <p class="description">
+      Loves designing clean and modern user experiences.
+    </p>
+
+    <div class="social-links">
+
+      <a href="https://www.instagram.com/"
+         target="_blank"
+         aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+
+      <a href="https://www.facebook.com/"
+         target="_blank"
+         aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+
+      <a href="https://www.linkedin.com/"
+         target="_blank"
+         aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+
+      <a href="https://twitter.com/"
+         target="_blank"
+         aria-label="Twitter">
+        <i class="fa-brands fa-twitter"></i>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="profile-card">
+
+    <img src="Card 3.jpg" alt="Rohan Profile">
+
+    <h3>Rohan</h3>
+
+    <p class="role">Backend Developer</p>
+
+    <p class="description">
+      Builds scalable APIs and secure backend applications.
+    </p>
+
+    <div class="social-links">
+
+      <a href="https://www.instagram.com/"
+         target="_blank"
+         aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+
+      <a href="https://www.facebook.com/"
+         target="_blank"
+         aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+
+      <a href="https://www.linkedin.com/"
+         target="_blank"
+         aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+
+      <a href="https://twitter.com/"
+         target="_blank"
+         aria-label="Twitter">
+        <i class="fa-brands fa-twitter"></i>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="profile-card">
+
+    <img src="Card 4.jpg" alt="Ananyan Profile">
+
+    <h3>Ananyan</h3>
+
+    <p class="role">Project Manager</p>
+
+    <p class="description">
+      Ensures smooth project coordination and teamwork.
+    </p>
+
+    <div class="social-links">
+
+      <a href="https://www.instagram.com/"
+         target="_blank"
+         aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+
+      <a href="https://www.facebook.com/"
+         target="_blank"
+         aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+
+      <a href="https://www.linkedin.com/"
+         target="_blank"
+         aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+
+      <a href="https://twitter.com/"
+         target="_blank"
+         aria-label="Twitter">
+        <i class="fa-brands fa-twitter"></i>
+      </a>
+
+    </div>
+  </div>
+
+</section>
+</html>
